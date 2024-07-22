@@ -1,0 +1,143 @@
+version: "3.1"
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - ask_bot_status
+  - inform
+  - provide_mortgage_option
+  - ask_query_
+  - inform_service
+
+entities:
+  - service
+  - name
+  - email
+  - phone
+  - option
+
+slots:
+
+  service:
+      type: text
+      influence_conversation: false
+      mappings:
+        - type: from_text
+          conditions:
+            - active_loop: service_form
+              requested_slot: service
+
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: name
+        conditions:
+          - active_loop: simple_form
+            requested_slot: name
+
+  email:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: email
+  
+  phone:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: phone
+  
+  mortgage_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: option
+
+actions:
+  - action_ask_service_query
+  - action_store_service
+  - action_ask_query_
+  - action_store
+
+forms:
+
+  service_form:
+    required_slots:
+      - service
+
+  simple_form:
+    required_slots:
+      - name
+      - email
+      - phone
+      - mortgage_type
+
+responses:
+
+  utter_ask_query:
+      - text: "Do you have any question?"
+        buttons:
+          - title: "Yes"
+            payload: /affirm
+          - title: "No"
+            payload: /deny
+        
+  utter_ask_query2:
+      - text: "Do you have more questions?"
+        buttons:
+          - title: "Yes"
+            payload: /affirm
+          - title: "No"
+            payload: /deny
+
+  utter_ask_service:
+    - text: "How can I help you?"
+
+  utter_ask_name:
+    - text: "Sure, please share your name:"
+  
+  utter_ask_email:
+    - text: "email:"
+
+  utter_ask_phone:
+    - text: "phone number:"
+
+  utter_introduce:
+    - text: "I'm here to help you with your mortgage inquiries and collect some information to provide better assistance."
+
+  utter_goodbye:
+    - text: "Bye"
+    
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_ask_mortgage_type:
+    - text: "What are you looking for?"
+      buttons:
+        - title: "First Time Home Buyer"
+          payload: /provide_mortgage_option{"option":"First Time Home Buyer"}
+        - title: "Mortgage Renewal or Transfer"
+          payload: /provide_mortgage_option{"option":"Mortgage Renewal or Transfer"}
+        - title: "Mortgage Refinancing"
+          payload: /provide_mortgage_option{"option":"Mortgage Refinancing"}
+        - title: "Construction Mortgage"
+          payload: /provide_mortgage_option{"option":"Construction Mortgage"}
+        - title: "Commercial Mortgage"
+          payload: /provide_mortgage_option{"option":"Commercial Mortgage"}
+
+  utter_query:
+    - text: "So, you can ask any query that you may be having about Mortgage. Just type your query below:"
+
+  utter_thanks:
+    - text: "Thanks {name}, for your response.\n\n\nSchedule the meet by clicking here [meet] (https://calendly.com/isandhu-yam) \n\n\nYou can also visit our centers at:\n\n1)  Abbotsford Address:\n    2328 Clearbrook Rd\n    Abbotsford, BC V2T 2X5\n\n2)  Surrey Address:\n    #108- 7511 120 Street\n    Delta, BC V4C 0C1\n\n\nStay connected with Sandhu and Sran Mortgages through our social media handles:\n\nFacebook: facebook-link\nTwitter: twitter-link\nInstagram: instagram-link\nLinkedIn: linkedin-link\n\n\nAt Sandhu and Sran Mortgages, we provide swift and simple mortgage solutions, helping you save big on mortgage expenses with custom plans and lightning-fast approvals. Join our extended family of satisfied customers today!"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

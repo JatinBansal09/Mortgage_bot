@@ -1,0 +1,56 @@
+version: "3.1"
+
+stories:
+
+  - story: service form
+    steps:
+    - intent: greet
+    - action: service_form
+    - active_loop: service_form
+
+  - story: submit service form
+    steps:
+    - action: service_form
+    - active_loop: null 
+    - action: simple_form
+    - active_loop: simple_form
+
+  - story: handle new user
+    steps:
+    - action: simple_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: action_ask_service_query
+    - action: utter_ask_query
+    - intent: affirm
+    - action: utter_query
+    
+
+  - story: Query handling
+    steps:
+    - action: utter_query
+    - intent: ask_query_
+    - action: action_ask_query_
+    - action: utter_ask_query2
+    - intent: affirm
+    - action: utter_query
+  
+  - story: denied asking queries
+    steps:
+    - action: utter_ask_query
+    - intent: deny
+    - action: action_store
+    - action: utter_thanks
+  
+  - story: denied after one query
+    steps:
+    - action: utter_ask_query
+    - intent: affirm
+    - action: utter_query
+    - intent: ask_query_
+    - action: action_ask_query_
+    - action: utter_ask_query2
+    - intent: deny
+    - action: action_store
+    - action: utter_thanks

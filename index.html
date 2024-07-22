@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        .chat-buttons {
+            margin-top: 10px;
+        }
+
+        .chat-buttons button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chat-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: pointer;
+        }
+        .chat-window {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 700px;
+            height: 600px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .chat-header {
+            background-color: #00152a;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .chat-body {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .chat-footer {
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        .chat-footer input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .chat-message {
+            margin: 10px 0;
+        }
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            color: gray;
+        }
+        .timeout-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 4px;
+            background-color: #007bff;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-icon" id="chat-icon">
+        💬
+    </div>
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">Chat with Sandhu and Sran Mortgages</div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message" id="initialMessage">
+                <div class="typing-indicator" id="typing-indicator">
+                    <span></span><span></span><span></span> S.S. Mortgages is typing...
+                </div>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="userInput" placeholder="Type your message here...">
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>

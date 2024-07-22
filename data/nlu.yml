@@ -1,0 +1,976 @@
+version: "3.1"
+
+nlu:
+
+  - intent: greet
+    examples: |
+      - hey
+      - Hey
+      - Hi
+      - hi
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+
+  - intent: affirm
+    examples: |
+      - yes
+      - yeah
+      - yup
+      - sure
+      - absolutely
+      - of course
+      - indeed
+      - correct
+      
+  - intent: deny
+    examples: |
+      - no
+      - nope
+      - nah
+      - no way
+      - never
+      - I don't think so
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+
+  - regex:  service
+    examples: |
+      - [a-zA-Z0-9\-'\"\s\$&@#_\.\?]*
+
+  - intent: inform_service
+    examples: |
+      - [I am looking for home loan.](service)
+      - [Can you help with mortgage refinancing?](service)
+      - [I need assistance with construction mortgage.](service)
+      - [I'm interested in commercial mortgage.](service)
+      - [I want home based mortgage.](service)
+      - [I want Rental loan.](service)
+      - [I'm looking for home-based mortgage.](service)
+      - [fixed-rate mortgage loan](service)
+      - [type_any_text](service)
+      - [Hi, I'm looking for mortgage loan.](service)
+      - [Hi, I'm interested in applying for a mortgage loan.](service)
+      - [Hi, I'm interested in applying for a mortgage loan. Can you guide me through the process?](service)
+      - [I'm looking to buy my first home and need information about mortgage options.](service)
+      - [What are the interest rates for mortgage loans currently?](service)
+      - [Could you provide details about the down payment required for a mortgage?](service)
+      - [I want to refinance my existing mortgage. Can you help with that?](service)
+      - [I'm interested in a construction mortgage for building a new property. What are the terms and conditions?](service)
+      - [I wanna ask](service)
+      - [I wanna ask about mortgage](service)
+      - [Can you](service)
+      - [Do you provide mortgage loans for commercial properties? I need financing for my business.](service)
+      - [I have questions about mortgage insurance. Can you explain how it works?](service)
+      - [I'm not sure which mortgage option is best for me. Can you provide personalized advice based on my financial situation?](service)
+      - [bddcbwvb hwbvwbvwj nbwebfw cwebc](service)
+      - [dbhc cjwdcwbedvunor djbcjw cwhbvh](service)
+      - [gbnjhnehfbwen bvhhbva bveb hevb.](service)
+      - [type_any_text](service)
+      - [I need help with my mortgage](service)
+      - [Can you assist me with my mortgage application?](service)
+      - [I have questions about refinancing](service)
+      - [I need information on home loans](service)
+      - [Can you help me with my loan payment?](service)
+      - [I want to apply for a mortgage](service)
+      - [I'm looking for mortgage rates](service)
+      - [How do I qualify for a mortgage?](service)
+      - [Can you explain the mortgage process?](service)
+      - [I need advice on mortgage options](service)
+      - [Can you help me with a home equity loan?](service)
+      - [I'm interested in a reverse mortgage](service)
+      - [What documents do I need for a mortgage application?](service)
+      - [I have an issue with my mortgage account](service)
+      - [Can you provide information on VA loans?](service)
+      - [I want to know more about FHA loans](service)
+      - [How can I lower my mortgage payment?](service)
+      - [I need help with my mortgage statement](service)
+      - [What is the interest rate for a fixed-rate mortgage?](service)
+      - [Can you tell me about adjustable-rate mortgages?](service)
+      - [I'm having trouble making my mortgage payments](service)
+      - [What are the closing costs for a mortgage?](service)
+      - [I need help understanding my mortgage terms](service)
+      - [Can you assist me with mortgage pre-approval?](service)
+      - [How do I get pre-qualified for a mortgage?](service)
+      - [I have questions about mortgage insurance](service)
+      - [Can you help me with mortgage forbearance?](service)
+      - [I'm looking for a mortgage calculator](service)
+      - [What is the process for refinancing my mortgage?](service)
+      - [How do I check my mortgage application status?](service)
+      - [I need help with my mortgage payoff statement](service)
+
+
+  - regex: name
+    examples: |
+      - ^[a-zA-Z]+(?:[-'.][a-zA-Z]+)*(\s[a-zA-Z]+(?:[-'\.][a-zA-Z]+)*)*$
+
+  - regex: email
+    examples: |
+      - ^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$
+
+  - regex: phone
+    examples: |
+      - ^\+?[\d{1,3}]?(?:[\(]?\d{3}[\)]?)(?:[-]?[\(]?\d{3}[\)]?)(?:[-]?[\(]?\d{4}[\)]?)$
+
+  - intent: inform
+    examples: |
+      - My name is [Alexander Hamilton](name)
+      - I am [Emma Watson](name)
+      - I go by [Sophia Loren](name)
+      - My name is [Richard Branson](name)
+      - You can call me [Meryl Streep](name)
+      - I am [Hugh Jackman](name)
+      - My name is [Julia Roberts](name)
+      - You can call me [Matt Damon](name)
+      - [Emma Stone](name)
+      - I go by [Keanu Reeves](name)
+      - My name is [Jared Leto](name)
+      - I am [Zoe Saldana](name)
+      - You can call me [Denzel Washington](name)
+      - [Michelle Pfeiffer](name)
+      - I go by [Anne Hathaway](name)
+      - My name is [Will Smith](name)
+      - You can call me [Rachel McAdams](name)
+      - I am [George Clooney](name)
+      - My name is [Angelina Jolie](name)
+      - You can call me [Brad Pitt](name)
+      - [Emily Blunt](name)
+      - I go by [Tom Hardy](name)
+      - My email is [john@example.com](email)
+      - You can reach me at [sarah@example.com](email)
+      - Send the details to [mike@work.com](email)
+      - [emma@school.com](email)
+      - My email address is [tom@personal.com](email)
+      - My phone number is [1234567890](phone)
+      - You can call me at [0987654321](phone)
+      - Reach me at [+1(790)555-0199](phone)
+      - [4445556666](phone)
+      - [+18887776666](phone)
+      - My contact number is [9998887777](phone)
+      - Contact me at [7035413333](phone)
+      - My number is [8887776666](phone)
+      - You can reach me at [1231231234](phone)
+
+
+  - intent: provide_mortgage_option
+    examples: |
+      - I am looking for a [First Time Home Buyer](option)
+      - I need a [Mortgage Renewal or Transfer](option)
+      - Can you help me with [Mortgage Refinancing](option)?
+      - I am interested in a [Construction Mortgage](option)
+      - Tell me about [Commercial Mortgage](option)
+
+
+  - intent: ask_query_
+    examples: |
+      - What are the different types of mortgages available in Canada?
+      - What is the current interest rate for mortgages in Canada?
+      - What is the minimum down payment required for a mortgage?
+      - How does mortgage pre-approval work?
+      - What documents do I need to apply for a mortgage?
+      - How long does it take to get approved for a mortgage?
+      - Can I get a mortgage with bad credit in Canada?
+      - What fees are associated with getting a mortgage?
+      - Can I buy a home with a mortgage if I am self-employed?
+      - Can I refinance my mortgage?
+      - What is mortgage insurance and do I need it in Canada?
+      - Can I pay off my mortgage early?
+      - Who is a mortgage broker and how can they help me?
+      - What is a mortgage prepayment penalty in Canada?
+      - Can I get a mortgage if I am a first-time homebuyer in Canada?
+      - What is the maximum mortgage amount I can qualify for?
+      - Can I get a mortgage if I am a temporary resident or non-resident?
+      - What is a mortgage broker fee?
+      - What is a mortgage rate hold in Canada?
+      - Can I transfer my mortgage to a new property?
+      - What are the types of mortgages in Canada?
+      - Explain the types of mortgages in Canada.
+      - Describe the mortgage options in Canada.
+      - What are my mortgage choices in Canada?
+      - Could you outline the mortgage types available in Canada?
+      - Tell me about mortgage types in Canada.
+      - What's the current mortgage interest rate in Canada?
+      - What's the mortgage interest rate now?
+      - What's the interest rate for mortgages in Canada currently?
+      - What's the interest charged for mortgages in Canada?
+      - Can you tell me about the current mortgage interest rate in Canada?
+      - Explain the mortgage interest rates in Canada.
+      - How much do I need for a mortgage down payment in Canada?
+      - What's the minimum down payment for a mortgage in Canada?
+      - Can you explain the mortgage pre-approval process?
+      - How does mortgage pre-approval function?
+      - Describe mortgage pre-approval.
+      - Tell me about the documents required for a mortgage application.
+      - What papers do I need for a mortgage application?
+      - Explain the mortgage application documents.
+      - How long does mortgage approval take?
+      - What's the typical mortgage approval timeline?
+      - Can I get a mortgage with poor credit in Canada?
+      - What's required to get a mortgage with bad credit in Canada?
+      - How feasible is a mortgage with bad credit in Canada?
+      - What are the mortgage fees in Canada?
+      - Can you break down the mortgage costs?
+      - Explain the fees for a mortgage in Canada.
+      - How do I buy a home if I'm self-employed?
+      - Can self-employed individuals get a mortgage in Canada?
+      - What's the process for self-employed people to get a mortgage?
+      - How do I refinance my mortgage in Canada?
+      - What are the steps to refinance a mortgage in Canada?
+      - Can I refinance my mortgage loan in Canada?
+      - What is mortgage insurance in Canada?
+      - Do I need mortgage insurance in Canada?
+      - Explain mortgage insurance requirements in Canada.
+      - Can I pay off my mortgage before the term ends?
+      - Is early mortgage repayment possible?
+      - What's the penalty for paying off a mortgage early?
+      - What's a mortgage broker's role?
+      - How does a mortgage broker help?
+      - Describe the role of a mortgage broker.
+      - What is a mortgage prepayment penalty in Canada?
+      - Explain the mortgage prepayment penalties.
+      - Can first-time homebuyers get a mortgage in Canada?
+      - How do first-time homebuyers get a mortgage in Canada?
+      - What's the maximum mortgage amount I can qualify for?
+      - How much mortgage can I get?
+      - What's the highest mortgage amount I qualify for?
+      - Can temporary residents or non-residents get a mortgage in Canada?
+      - Is it possible for temporary residents or non-residents to get a mortgage in Canada?
+      - What are the mortgage broker fees?
+      - How much do mortgage brokers charge?
+      - Explain mortgage broker fees.
+      - What is a mortgage rate hold?
+      - How does a mortgage rate hold work?
+      - Can I transfer my mortgage to another property in Canada?
+      - Is mortgage transfer possible in Canada?
+      - What services do you offer?
+      - What kind of services are available?
+      - What can you help me with?
+      - How can I save on mortgage expenses?
+      - How can I reduce my mortgage costs?
+      - What are some ways to save on mortgage expenses?
+      - Can you tell me more about your mortgage solutions?
+      - I'd like to know more about your mortgage options.
+      - What mortgage solutions do you provide?
+      - What makes Sandhu and Sran Mortgages different from other brokers?
+      - How are you different from other mortgage brokers?
+      - Why should I choose Sandhu and Sran Mortgages?
+      - How can I contact you?
+      - Sandhu and Sran Mortgages
+      - SS Mortgages
+      - help me with interest rates.
+      - What sets Sandhu and Sran Mortgages apart from other lenders?
+      - Do you offer personalized mortgage plans tailored to my needs?
+      - Do you have a user-friendly online platform for mortgage management?
+      - Can I apply for a mortgage online through Sandhu and Sran?
+      - How quickly can I get pre-approved for a mortgage with you?
+      - What is the typical closing time for a mortgage with Sandhu and Sran?
+      - Do you offer mortgage insurance options to protect my investment?
+      - Can you help me consolidate debt through a mortgage?
+      - What refinancing options are available through Sandhu and Sran?
+      - How do you protect my sensitive financial information?
+      - Do you offer a mix of fixed and adjustable-rate mortgages?
+      - Do you specialize in any specific mortgage types (e.g., FHA, VA, USDA)?
+      - Can you help me with a jumbo mortgage?
+      - What is the minimum down payment required for a mortgage with you?
+      - Do you offer mortgage calculators and financial tools?
+      - Can you provide educational resources about homeownership?
+      - What do your customers say about their experience with Sandhu and Sran?
+      - How long has Sandhu and Sran been in the mortgage business?
+      - Do you offer mortgage rate lock-in options to protect against rising rates?
+      - Can you help me with a reverse mortgage for retirement?
+      - Do you offer mortgage options for self-employed individuals?
+      - Do you have a mobile app for mortgage management?
+      - Can I track my mortgage application online?
+      - What’s the best way to reach you?
+      - How do I get in touch with you?
+      - What are your office addresses?
+      - Where are your offices located?
+      - Can you provide your office locations?
+      - Can I get help with low credit score mortgage approval?
+      - Do you assist with mortgages for low credit scores?
+      - Can you help me get a mortgage with a low credit score?
+      - Do you offer first-time home buyer mortgages?
+      - What options do you have for first-time home buyers?
+      - Are there mortgages for first-time home buyers?
+      - What is a mortgage renewal or transfer?
+      - Can you explain what mortgage renewal or transfer means?
+      - What does mortgage renewal or transfer involve?
+      - Can you explain mortgage refinancing?
+      - What is mortgage refinancing?
+      - How does mortgage refinancing work?
+      - What is a construction mortgage?
+      - Can you tell me about construction mortgages?
+      - How do construction mortgages work?
+      - Do you offer commercial mortgages?
+      - Are there options for commercial mortgages?
+      - What are your commercial mortgage services?
+      - What are private mortgages?
+      - Can you explain private mortgages?
+      - How do private mortgages work?
+      - Can you help with truck loans?
+      - Do you offer truck loans?
+      - What is the process for securing a truck loan?
+      - Do you provide investment property mortgages?
+      - What options are there for investment property mortgages?
+      - Can you help with mortgages for investment properties?
+      - What is a home equity line of credit?
+      - Can you explain home equity lines of credit?
+      - How does a home equity line of credit work?
+      - How do I apply for a mortgage?
+      - What’s the process for applying for a mortgage?
+      - How can I start a mortgage application?
+      - What documents do I need to apply for a mortgage?
+      - What paperwork is required for a mortgage application?
+      - Which documents are needed for a mortgage application?
+      - How long does it take to get mortgage approval?
+      - What is the timeframe for mortgage approval?
+      - How quickly can I get approved for a mortgage?
+      - Are there any processing fee waivers available?
+      - Do you have any processing fee waivers?
+      - Are there waivers for processing fees?
+      - What are your current mortgage rates?
+      - Can you provide the current mortgage rates?
+      - What are the latest mortgage rates?
+      - Can you provide the interest rates for fixed-term mortgages?
+      - What are the interest rates for fixed-term mortgages?
+      - What are your fixed-term mortgage rates?
+      - How do I choose the right mortgage rate and lender?
+      - Can you help me choose the best mortgage rate and lender?
+      - How do I select the right mortgage rate and lender?
+      - What do your clients say about your services?
+      - Are there any client testimonials?
+      - What feedback do clients give about your services?
+      - Can you share some client testimonials?
+      - Do you have any customer reviews?
+      - Can you show me some testimonials from your clients?
+      - Are there any special offers available?
+      - Do you have any current special offers?
+      - Are there any promotions available?
+      - What awards have you received?
+      - Have you won any awards?
+      - Can you tell me about your awards?
+      - Why should I trust your mortgage expertise?
+      - What makes your mortgage expertise reliable?
+      - Why are you considered mortgage experts?
+      - Do you offer customized mortgage solutions?
+      - Can you provide personalized mortgage solutions?
+      - Do you tailor mortgage solutions to individual needs?
+      - Can you give me advice on choosing the right mortgage product?
+      - How can I decide on the best mortgage product?
+      - Can you help me select the right mortgage product?
+      - How do you help customers with financial empowerment?
+      - What do you do to empower customers financially?
+      - How do you assist with financial empowerment for customers?
+      - I want to know the different types of mortgages available in Canada.
+      - I am curious about the current interest rate for mortgages in Canada.
+      - I need to know the minimum down payment required for a mortgage.
+      - I would like to understand how mortgage pre-approval works.
+      - I am wondering what documents I need to apply for a mortgage.
+      - I am interested in how long it takes to get approved for a mortgage.
+      - I have bad credit; can I still get a mortgage in Canada?
+      - I want to know what fees are associated with getting a mortgage.
+      - I am self-employed; can I buy a home with a mortgage?
+      - I am considering refinancing my mortgage; how do I do that?
+      - I'm a first-time homebuyer; can I get a mortgage in Canada?
+      - I'm trying to figure out the maximum mortgage amount I can qualify for.
+      - I'm a temporary resident; can I get a mortgage in Canada?
+      - I'm curious about what a mortgage broker fee is.
+      - I'm looking for a loan.
+      - I'm looking for a mortgage.
+      - I need help with a mortgage.
+      - Are there options for self-employed individuals to get a mortgage?
+      - Are there special programs for first-time homebuyers?
+      - Are there any government programs to help with mortgage down payments?
+      - What are the benefits of using a mortgage broker?
+      - What are the differences between fixed and variable mortgage rates?
+      - What should I consider when choosing between fixed and variable mortgage rates?
+      - Can you explain the difference between open and closed mortgages?
+      - What is a reverse mortgage and how does it work?
+      - Are there specific mortgages for buying a second home?
+      - Can I use a mortgage to buy an investment property?
+      - What are the tax implications of owning a home with a mortgage?
+      - How do interest rates affect mortgage payments?
+      - What is the impact of a higher down payment on mortgage terms?
+      - What is a bridge loan and when would I need one?
+      - Are there any grants available for first-time homebuyers?
+      - What are the risks of an adjustable-rate mortgage?
+      - How can I improve my chances of getting mortgage approval?
+      - What is a credit score, and how does it affect mortgage eligibility?
+      - Are there any special considerations for mortgages on rural properties?
+      - Can you help me understand mortgage amortization schedules?
+      - How do mortgage lenders assess affordability?
+      - Are there penalties for breaking a mortgage contract early?
+      - What is the role of a co-signer in a mortgage application?
+      - Can you explain the mortgage renewal process in Canada?
+      - How does a second mortgage work?
+      - What are the advantages and disadvantages of a second mortgage?
+      - Can I consolidate debt with a mortgage?
+      - What is a cash-back mortgage and how does it work?
+      - Are there any special mortgage products for senior citizens?
+      - How does a construction mortgage differ from a traditional mortgage?
+      - What are the benefits of prepaying a mortgage?
+      - Can I get a mortgage if I have declared bankruptcy in the past?
+      - How do joint mortgages work?
+      - What is the difference between a mortgage lender and a mortgage broker?
+      - Can I switch mortgage lenders during my mortgage term?
+      - Are there any mortgage options for people with fluctuating incomes?
+      - What is a mortgage stress test and why is it important?
+      - How does inflation impact mortgage rates?
+      - Can you explain the process of porting a mortgage?
+      - What happens if I miss a mortgage payment?
+      - How do mortgage interest deductions work for tax purposes?
+      - Are there any eco-friendly or green mortgage options available?
+      - How does a mortgage work for buying a vacation home?
+      - What should I know about mortgage fraud?
+      - How can I protect myself from mortgage scams?
+      - What is a HELOC and how is it different from a traditional mortgage?
+      - Can I use a mortgage to finance home renovations?
+      - What are the requirements for a jumbo mortgage?
+      - How does property value affect mortgage approval?
+      - Are there any online tools to help me calculate mortgage payments?
+      - How do I choose between different mortgage lenders?
+      - What should I ask a potential mortgage broker?
+      - What are the benefits of a pre-approved mortgage?
+      - How can I lock in a mortgage rate?
+      - Are there any downsides to a zero-down mortgage?
+      - Can you explain the concept of mortgage default insurance?
+      - What is a mortgage rate cap?
+      - How does a mortgage assumption work?
+      - Are there mortgage options for newlyweds?
+      - Can you help me with budgeting for a mortgage?
+      - What is the difference between principal and interest in a mortgage payment?
+      - How often can mortgage interest rates change with an adjustable-rate mortgage?
+      - Are there any benefits to making bi-weekly mortgage payments?
+      - What should I do if I can't afford my mortgage payments?
+      - How do I prepare for a mortgage application?
+      - What is the best way to compare mortgage offers?
+      - Can I get a mortgage without a credit history?
+      - What are the benefits of an offset mortgage?
+      - How does a mortgage lien work?
+      - Are there specific mortgages for eco-friendly homes?
+      - How can I estimate my mortgage affordability?
+      - What is a mortgage servicing fee?
+      - Can I get a mortgage on a leasehold property?
+      - How do mortgage points work?
+      - What is the process for getting a second mortgage?
+      - Can I negotiate mortgage terms with my lender?
+      - What should I consider when choosing a mortgage term length?
+      - Are there mortgages available for high net worth individuals?
+      - How does a mortgage affect my credit score?
+      - Can I use a personal loan for a down payment on a mortgage?
+      - What are the pros and cons of a 30-year mortgage versus a 15-year mortgage?
+      - How do I determine the right mortgage amount for my budget?
+      - What are the differences between conventional and FHA mortgages?
+      - Can you explain the concept of mortgage-backed securities?
+      - How does the appraisal process affect my mortgage application?
+      - What is the impact of having a co-borrower on a mortgage?
+      - Are there special mortgage programs for military veterans?
+      - What is the importance of a home inspection in the mortgage process?
+      - How do property taxes affect my mortgage payment?
+      - Can I get a mortgage if I am on maternity leave?
+      - What are the mortgage options for teachers?
+      - How do I apply for a mortgage if I am a freelancer?
+      - Can I get a mortgage if I have student loan debt?
+      - What are the mortgage options for doctors and medical professionals?
+      - How does the Bank of Canada's interest rate affect mortgages?
+      - Are there mortgage options for part-time workers?
+      - How do I transfer my mortgage to another lender?
+      - What is the difference between an interest-only mortgage and a traditional mortgage?
+      - Can you explain the concept of mortgage-backed securities?
+      - How does a mortgage payment holiday work?
+      - Are there mortgage options for people with seasonal incomes?
+      - What should I do if my mortgage application is denied?
+      - How do I choose the best mortgage advisor?
+      - What are the benefits of a portable mortgage?
+      - How do changing real estate market conditions affect my mortgage?
+      - Can I use my RRSP for a mortgage down payment?
+      - What are the mortgage options for new immigrants to Canada?
+      - How do I calculate the total cost of a mortgage?
+      - What is a no-documentation mortgage?
+      - Can I get a mortgage if I am recently divorced?
+      - What is the difference between a mortgage pre-qualification and pre-approval?
+      - How do I get a mortgage if I am an independent contractor?
+      - Can I use a mortgage to buy a commercial property?
+      - What are the steps to buy a home with a mortgage?
+      - How does a mortgage affect my overall financial plan?
+      - Are there specific mortgages for first-time buyers?
+      - What is the importance of a down payment in securing a mortgage?
+      - Can you explain the concept of mortgage underwriting?
+      - How do I handle multiple mortgage offers?
+      - What is the impact of inflation on mortgage rates?
+      - How do I know if I should refinance my mortgage?
+      - What are the benefits of a mortgage broker?
+      - What are the risks of an adjustable-rate mortgage?
+      - How do I know if I should get a fixed or variable mortgage rate?
+      - What is the process of transferring a mortgage to another property?
+      - How can I prepare for a mortgage renewal?
+      - What is the role of a mortgage underwriter?
+      - How do property values affect my mortgage approval?
+      - Are there mortgage options for self-employed individuals?
+      - What should I consider when choosing a mortgage lender?
+      - Can I get a mortgage if I have recently changed jobs?
+      - How does a reverse mortgage work for senior citizens?
+      - What are the differences between a mortgage and a home equity loan?
+      - Can I use a mortgage to buy a second property?
+      - What is the impact of mortgage interest rates on home affordability?
+      - How do I choose the right mortgage product for my needs?
+      - What is a mortgage payoff statement?
+      - How does a mortgage lender assess my creditworthiness?
+      - What are the requirements for a mortgage application?
+      - Can I get a mortgage if I have a low credit score?
+      - What is the process of a mortgage appraisal?
+      - How do I qualify for a mortgage with a non-traditional income?
+      - Can I get a mortgage if I am a new graduate?
+      - What are the benefits of a fixed-rate mortgage?
+      - How does a mortgage payment affect my budget?
+      - Can I use a mortgage to consolidate other debts?
+      - What is the impact of a high down payment on my mortgage?
+      - How do I apply for a mortgage if I am self-employed?
+      - What is the role of a mortgage advisor?
+      - How does a construction mortgage work?
+      - Can I get a mortgage if I am on a contract job?
+      - What are the benefits of a variable-rate mortgage?
+      - How do I know if I qualify for a mortgage?
+      - What are the different types of mortgage rates?
+      - Can I get a mortgage if I have a low income?
+      - Can you explain the mortgage?
+      - mortgage
+      - help
+      - I need a mortgage
+      - I'm interested in getting a mortgage
+      - Can you help me with a mortgage?
+      - I'm looking for information about mortgages
+      - I'm looking for a mortgage
+      - I want to apply for a mortgage
+      - How do I get a mortgage?
+      - What are the requirements for a mortgage?
+      - Can you explain mortgages to me?
+      - I need help with my mortgage
+      - I'm having trouble with my mortgage payments
+      - I want to refinance my mortgage
+      - What is a mortgage?
+      - How much can I borrow for a mortgage?
+      - I'm buying a house and need a mortgage
+      - I'm looking for a mortgage lender
+      - Mortgage options
+      - Mortgage rates
+      - Mortgage calculator
+      - interest rates
+      - I'm considering buying a house and need mortgage advice.
+      - I have a low credit score. Can I still get a mortgage?
+      - I'm interested in refinancing my home mortgage.
+      - I need help understanding mortgage interest rates. 
+      - I want to know the difference between a fixed-rate and variable-rate mortgage.
+      - I'm looking for a mortgage lender with low closing costs.
+      - I'm a first-time homebuyer and need help with the down payment.
+      - I'm concerned about rising interest rates affecting my mortgage.
+      - I want to know the steps involved in getting a mortgage pre-approval.
+      - I need help calculating my monthly mortgage payment.
+      - I'm interested in government-backed mortgage programs for veterans.
+      - I'm self-employed and need advice on getting a mortgage.
+      - I want to buy an investment property and need a mortgage.
+      - I'm considering consolidating debt with a mortgage.
+      - I need help understanding mortgage insurance.
+      - First-time homebuyer mortgage
+      - Mortgage renewal or transfer
+      - Mortgage refinancing
+      - Construction mortgage
+      - Commercial mortgage
+      - Private mortgage
+      - Investment property mortgage
+      - Home equity line of credit
+      - Truck loan
+      - I'm looking for a mortgage lender with good customer service.
+      - I want to know the options for mortgage refinancing.
+      - I'm interested in learning about mortgage points.
+      - I need help understanding mortgage amortization.
+      - I'm worried about being able to afford a mortgage.
+      - What are the different types of mortgages available?
+      - How do I choose the right mortgage?
+      - What is the mortgage application process like?
+      - What documents do I need to apply for a mortgage?
+      - How much can I afford to borrow for a mortgage? 
+      - What is the difference between a fixed-rate and variable-rate mortgage?
+      - How do I calculate my mortgage payments?
+      - What is mortgage insurance? 
+      - Can I get a mortgage with bad credit? 
+      - What are the closing costs for a mortgage? 
+      - How long does it take to get approved for a mortgage? 
+      - What is a mortgage pre-approval?
+      - Can I refinance my mortgage?
+      - What is a mortgage broker?
+      - How do I choose a mortgage lender?
+      - Could you explain the benefits of a mortgage rate lock?
+      - Why is it important to get a home inspection before buying a house?
+      - What do I need to qualify for a mortgage if I am self-employed? 
+      - How do I find a mortgage that fits my budget? 
+      - Should I use a mortgage broker or go directly to a lender? 
+      - What are the risks of an adjustable-rate mortgage?
+      - Tell me more about government-backed mortgage programs. 
+      - How does property tax affect my mortgage payment? 
+      - What is the difference between a mortgage and a home equity loan? 
+      - Can you explain the concept of mortgage points? 
+      - What mortgage options are available for an investment property? 
+      - What are the pros and cons of a mortgage with a balloon payment? 
+      - How does a mortgage affect my credit score? 
+      - What is the role of a mortgage underwriter? 
+      - What mortgage options are available for a vacation home? 
+      - Help me understand mortgage amortization.
+      - I need help with mortgage refinancing. 
+      - Can you explain the process of transferring a mortgage to a new home? 
+      - What is the current mortgage rate in my area? 
+      - Should I use a mortgage calculator?
+      - What are the differences between FHA, VA, and conventional mortgages?
+      - How do fixed-rate and adjustable-rate mortgages compare? 
+      - What are the advantages and disadvantages of using a mortgage broker versus a direct lender? 
+      - How do mortgage rates vary by region? 
+      - How can I save for a down payment? 
+      - Should I lock in a mortgage rate now? 
+      - How can I qualify for a mortgage if I am self-employed? 
+      - What can I do if I am behind on mortgage payments?
+      - What are the current mortgage rates offered by SS Mortgages?
+      - What types of mortgages does SS Mortgages offer?
+      - Does SS Mortgages offer first-time homebuyer programs?
+      - What are the fees associated with SS Mortgages?
+      - Does SS Mortgages offer mortgage pre-approval?
+      - What is the process of applying for a mortgage with SS Mortgages?
+      - How long is the mortgage approval process with SS Mortgages?
+      - What are the benefits of choosing SS Mortgages?
+      - Does SS Mortgages offer mortgage calculators?
+      - Can I get a mortgage with bad credit through SS Mortgages?
+      - What are the down payment options with SS Mortgages?
+      - Does SS Mortgages offer mortgage refinancing?
+      - What is the customer service like at SS Mortgages?
+      - Does SS Mortgages offer online mortgage applications?
+      - What are the contact details for SS Mortgages?
+      - Does SS Mortgages offer mortgage insurance?
+      - What are the closing costs with SS Mortgages?
+      - Does SS Mortgages offer fixed-rate mortgages?
+      - Does SS Mortgages offer adjustable-rate mortgages?
+      - What are the loan-to-value ratios offered by SS Mortgages?
+      - Does SS Mortgages offer jumbo mortgages?
+      - What are the special features of SS Mortgages?
+      - Does SS Mortgages offer any mortgage discounts or promotions?
+      - What is the process for getting a mortgage pre-approval from SS Mortgages?
+      - How long does it take to close on a mortgage with SS Mortgages?
+      - What are the available mortgage terms with SS Mortgages?
+      - Does SS Mortgages offer mortgage rate locks?
+      - What is the process for refinancing a mortgage with SS Mortgages?
+      - Does SS Mortgages offer mortgage calculators?
+      - What kind of customer support does SS Mortgages offer?
+      - Does SS Mortgages have any branches or locations?
+      - What are the current mortgage rates offered by Sandhu and Sran Mortgages?
+      - What types of mortgages does Sandhu and Sran Mortgages offer?
+      - Does Sandhu and Sran Mortgages offer first-time homebuyer programs?
+      - What are the fees associated with Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer mortgage pre-approval?
+      - What is the process of applying for a mortgage with Sandhu and Sran Mortgages?
+      - How long is the mortgage approval process with Sandhu and Sran Mortgages?
+      - What are the benefits of choosing Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer mortgage calculators?
+      - Can I get a mortgage with bad credit through Sandhu and Sran Mortgages?
+      - What are the down payment options with Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer mortgage refinancing?
+      - What is the customer service like at Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer online mortgage applications?
+      - What are the contact details for Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer mortgage insurance?
+      - What are the closing costs with Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer fixed-rate mortgages?
+      - Does Sandhu and Sran Mortgages offer adjustable-rate mortgages?
+      - What are the loan-to-value ratios offered by Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer jumbo mortgages?
+      - What are the special features of Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer any mortgage discounts or promotions?
+      - What is the process for getting a mortgage pre-approval from Sandhu and Sran Mortgages?
+      - How long does it take to close on a mortgage with Sandhu and Sran Mortgages?
+      - What are the available mortgage terms with Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer mortgage rate locks?
+      - What is the process for refinancing a mortgage with Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran Mortgages offer mortgage calculators?
+      - What kind of customer support does Sandhu and Sran Mortgages offer?
+      - Does Sandhu and Sran Mortgages have any branches or locations?
+      - I'm considering buying a house next year. What mortgage options should I explore? 
+      - I'm self-employed and need a mortgage. How can I prove my income?
+      - What are the benefits of refinancing my mortgage if interest rates drop? 
+      - Why is it important to get pre-approved for a mortgage before house hunting? 
+      - Could you explain the difference between a mortgage and a home equity loan?
+      - Does a higher credit score guarantee a lower interest rate on a mortgage? 
+      - How can I improve my chances of getting approved for a mortgage with bad credit? 
+      - I'm interested in government-backed mortgage programs for veterans. What are the requirements?
+      - What are the closing costs typically associated with a mortgage? 
+      - Can I use a mortgage to consolidate debt?
+      - Help me understand how mortgage insurance works. I'm a first-time homebuyer. 
+      - Could you explain the process of getting a mortgage pre-approval?
+      - I'm worried about rising interest rates. Should I lock in a mortgage rate now?
+      - What is the typical mortgage term length for first-time homebuyers?
+      - How does property tax affect my monthly mortgage payment? 
+      - Does a larger down payment significantly reduce my monthly mortgage payment?
+      - I'm interested in buying an investment property. What mortgage options are available?
+      - Could you explain the concept of mortgage points? 
+      - What are the pros and cons of a balloon mortgage? 
+      - How does a mortgage affect my credit score? 
+      - I'm considering selling my current home and buying a new one. How does this affect my mortgage?
+      - What is the role of a mortgage underwriter in the approval process? 
+      - I'm interested in buying a vacation home. What mortgage options are available? 
+      - Help me understand mortgage amortization. Can you provide a simple example?
+      - I need help with mortgage refinancing. What are the steps involved? 
+      - Can you explain the process of transferring a mortgage to a new home? 
+      - What is the current average mortgage interest rate in my area? 
+      - Should I use a mortgage calculator to estimate my monthly payment?
+      - What are the differences between FHA, VA, and conventional mortgages? 
+      - How do fixed-rate and adjustable-rate mortgages compare in terms of risk? 
+      - What are the advantages and disadvantages of using a mortgage broker? 
+      - How do mortgage rates typically fluctuate throughout the year? 
+      - I'm struggling to save for a down payment. Are there any alternatives? 
+      - Should I lock in a mortgage rate now or wait for potential rate drops? 
+      - How can I qualify for a mortgage if I am self-employed with irregular income? 
+      - What can I do to avoid foreclosure if I fall behind on mortgage payments?
+      - I'm a first-time homebuyer with a low credit score. What are my options?
+      - I'm self-employed and need help proving my income for a mortgage.
+      - I'm worried about job security and how it affects mortgage approval.
+      - I want to buy a house but have student loan debt. Will this impact my mortgage eligibility?
+      - I'm interested in green mortgages. What options are available?
+      - I have a large down payment saved. What mortgage options should I consider?
+      - I'm looking for a mortgage with low closing costs. 
+      - I need a mortgage with flexible payment options.
+      - I'm concerned about rising interest rates. Should I lock in a rate?
+      - I want to purchase a property in a high-cost area. What mortgage options are available?
+      - I'm a military service member. What mortgage benefits am I eligible for?
+      - I have bad credit but have made significant improvements. Can I qualify for a mortgage?
+      - I'm a part-time worker. Can I still qualify for a mortgage?
+      - I'm looking for a mortgage with no prepayment penalties.
+      - I need help understanding private mortgage insurance.
+      - I want to buy a condo. What are the mortgage options?
+      - I'm interested in a mortgage with a low down payment requirement. 
+      - I have a stable job but want to explore mortgage options with low monthly payments. 
+      - I'm looking for a mortgage lender that offers online tools and resources.
+      - I need help understanding the difference between a mortgage and a home equity loan.
+      - I'm a first-time homebuyer with a limited budget. What are my options?
+      - I have a low credit score due to past financial challenges. Can I still qualify for a mortgage?
+      - I'm self-employed with fluctuating income. How can I prove my eligibility for a mortgage?
+      - I'm looking to purchase a rental property. What mortgage options are available?
+      - I want to consolidate debt while buying a home. Can I use a mortgage for this?
+      - I'm interested in energy-efficient homes. Are there green mortgage options?
+      - I'm a senior citizen looking to downsize. What mortgage options are available?
+      - I'm considering buying a vacation home. What are the mortgage implications?
+      - I'm worried about job security due to economic uncertainty. How does this affect mortgage approval?
+      - I want to purchase a home with a partner who has different credit scores. What are the options?
+      - I'm interested in buying a farm or agricultural land. Are there specific mortgage options?
+      - I have inherited property and want to use it as collateral for a mortgage. Is this possible?
+      - I'm a foreign national looking to buy a property in the country. What are the mortgage requirements?
+      - I'm looking for a mortgage with flexible payment options to match my irregular income.
+      - I want to purchase a timeshare. Are there mortgage options available for this?
+      - I'm interested in buying a pre-construction property. What mortgage options are available?
+      - I have a large amount of student loan debt. How will this affect my mortgage eligibility?
+      - I'm self-employed with no traditional income verification. How can I qualify for a mortgage?
+      - I'm looking for a mortgage with a low down payment option. 
+      - I want to purchase a home in a high-cost area. What are the challenges and solutions?
+      - What are the options for first-time homebuyers with limited savings? I've been renting for years but am ready to buy. 
+      - Why is it difficult to get a mortgage with a low credit score? I've been working hard to improve it.
+      - Can I get a mortgage if I'm self-employed and have irregular income? I own a small business. 
+      - Could you explain the difference between a fixed-rate and variable-rate mortgage? I'm worried about rising interest rates.
+      - Would it be beneficial to refinance my mortgage if I've made significant home improvements?
+      - Help me understand the process of getting a mortgage pre-approval. I'm eager to start house hunting.
+      - Does a larger down payment guarantee a lower interest rate on a mortgage? I have a significant savings but want to know my options. 
+      - How can I improve my chances of getting approved for a mortgage with bad credit? I've made significant progress in paying off debt.
+      - I'm interested in government-backed mortgage programs for veterans. I recently retired from the military.
+      - What are the closing costs typically associated with a mortgage? I'm budgeting for my first home purchase.
+      - Can I use a mortgage to consolidate debt? I have high-interest credit card debt. 
+      - Help me understand mortgage insurance. I'm buying a condo with a small down payment. 
+      - Could you explain the process of getting a mortgage pre-approval? I'm eager to start house hunting.
+      - I'm worried about rising interest rates. Should I lock in a mortgage rate now?
+      - What is the typical mortgage term length for first-time homebuyers? I'm planning to buy a starter home.
+      - How does property tax affect my monthly mortgage payment? I'm buying a house in a high-tax area.
+      - Does a larger down payment significantly reduce my monthly mortgage payment? I have a substantial savings.
+      - I'm interested in buying an investment property. What mortgage options are available for rental properties? 
+      - Could you explain the concept of mortgage points? I want to lower my interest rate. 
+      - What are the pros and cons of a balloon mortgage? I'm considering a short-term mortgage option. 
+      - How does a mortgage affect my credit score? I'm concerned about maintaining good credit. 
+      - I'm considering selling my current home and buying a new one. How does this impact my existing mortgage? 
+      - What is the role of a mortgage underwriter? I want to understand the approval process better. 
+      - I'm interested in buying a vacation home. What are the mortgage options for second homes? 
+      - Help me understand mortgage amortization. I want to track my loan payoff over time.
+      - I need help with mortgage refinancing. My current interest rates are high. 
+      - Can you explain the process of transferring a mortgage to a new home? I'm relocating for a job. 
+      - What is the current average mortgage interest rate in my area? I'm starting my home search. 
+      - Should I use a mortgage calculator to estimate my monthly payment? I want to create a realistic budget. 
+      - What are the differences between FHA, VA, and conventional mortgages? I'm unsure which one is right for me. 
+      - How do fixed-rate and adjustable-rate mortgages compare in terms of risk? I'm risk-averse. 
+      - What are the advantages and disadvantages of using a mortgage broker? I'm overwhelmed by the options. 
+      - How do mortgage rates typically fluctuate throughout the year? I'm planning to buy in the spring. 
+      - I'm struggling to save for a down payment. Are there any government programs to assist? 
+      - Should I lock in a mortgage rate now or wait for potential rate drops? I'm unsure about market trends. 
+      - How can I qualify for a mortgage if I am self-employed with irregular income? I own a freelance business. 
+      - What can I do to avoid foreclosure if I fall behind on mortgage payments? I'm facing financial difficulties.
+      - What are the mortgage rates offered by Sandhu and Sran Mortgages?
+      - Can I get a mortgage with bad credit through Sandhu and Sran?
+      - How do I apply for a mortgage with Sandhu and Sran?
+      - What are the closing costs with Sandhu and Sran Mortgages?
+      - Does Sandhu and Sran offer mortgage refinancing?
+      - I need help with mortgage refinancing through Sandhu and Sran.
+      - Can Sandhu and Sran help me with a construction mortgage? 
+      - What are the benefits of choosing Sandhu and Sran over other lenders?
+      - How long does it take to get a mortgage approved through Sandhu and Sran?
+      - Can I get a mortgage pre-approval from Sandhu and Sran?
+      - What is the process of transferring a mortgage with Sandhu and Sran?
+      - I'm interested in the first-time homebuyer program offered by Sandhu and Sran.
+      - Can Sandhu and Sran help me with a low down payment mortgage?
+      - How does the mortgage renewal process work with Sandhu and Sran?
+      - I need help with mortgage payments. Can Sandhu and Sran assist?
+      - What are the available mortgage terms with Sandhu and Sran?
+      - Can I get a mortgage rate lock with Sandhu and Sran?
+      - Does Sandhu and Sran offer mortgage calculators?
+      - What kind of customer support does Sandhu and Sran provide?
+      - Does Sandhu and Sran have any branches or locations?
+      - I'm interested in a private mortgage through Sandhu and Sran.
+      - Can Sandhu and Sran help me with a truck loan?
+      - I need a mortgage for an investment property. Can Sandhu and Sran help?
+      - What are the options for a home equity line of credit with Sandhu and Sran?
+      - I'm looking for a mortgage with a low credit score. Can Sandhu and Sran help?
+      - Can Sandhu and Sran offer me a construction mortgage?
+      - I need help with mortgage refinancing through Sandhu and Sran.
+      - What are the benefits of choosing Sandhu and Sran over other lenders?
+      - How long does it take to get a mortgage approved through Sandhu and Sran?
+      - Can I get a mortgage pre-approval from Sandhu and Sran?
+      - What is the process of transferring a mortgage with Sandhu and Sran?
+      - I'm interested in the first-time homebuyer program offered by Sandhu and Sran.
+      - Can Sandhu and Sran help me with a low down payment mortgage?
+      - How does the mortgage renewal process work with Sandhu and Sran?
+      - I need help with mortgage payments. Can Sandhu and Sran assist?
+      - What are the available mortgage terms with Sandhu and Sran?
+      - Can I get a mortgage rate lock with Sandhu and Sran?
+      - Does Sandhu and Sran offer mortgage calculators?
+      - What kind of customer support does Sandhu and Sran provide?
+      - Does Sandhu and Sran have any branches or locations?
+      - I'm interested in a private mortgage through Sandhu and Sran.
+      - Can Sandhu and Sran help me with a truck loan?
+      - I need a mortgage for an investment property. Can Sandhu and Sran help?
+      - What are the options for a home equity line of credit with Sandhu and Sran?
+      - I'm looking for a mortgage with a low credit score. Can Sandhu and Sran help?
+      - Can Sandhu and Sran help me with a construction mortgage?
+      - I need help with mortgage refinancing through Sandhu and Sran.
+      - What are the benefits of choosing Sandhu and Sran over other lenders?
+      - How long does it take to get a mortgage approved through Sandhu and Sran?
+      - Can I get a mortgage pre-approval from Sandhu and Sran?
+      - What is the process of transferring a mortgage with Sandhu and Sran?
+      - I'm interested in the first-time homebuyer program offered by Sandhu and Sran.
+      - Can Sandhu and Sran help me with a low down payment mortgage?
+      - How does the mortgage renewal process work with Sandhu and Sran?
+      - I need help with mortgage payments. Can Sandhu and Sran assist?
+      - What are the available mortgage terms with Sandhu and Sran?
+      - Can I get a mortgage rate lock with Sandhu and Sran?
+      - Does Sandhu and Sran offer mortgage calculators?
+      - What kind of customer support does Sandhu and Sran provide?
+      - Does Sandhu and Sran have any branches or locations?
+      - I'm interested in a private mortgage through Sandhu and Sran.
+      - Can Sandhu and Sran help me with a truck loan?
+      - I need a mortgage for an investment property. Can Sandhu and Sran help?
+      - What are the options for a home equity line of credit with Sandhu and Sran?
+      - I'm looking for a mortgage with a low credit score. Can Sandhu and Sran help?
+      - Can Sandhu and Sran help me with a construction mortgage?
+      - I need help with mortgage refinancing through Sandhu and Sran.
+      - What are the benefits of choosing Sandhu and Sran over other lenders?
+      - How long does it take to get a mortgage approved through Sandhu and Sran?
+      - Can I get a mortgage pre-approval from Sandhu and Sran?
+      - What is the process of transferring a mortgage with Sandhu and Sran?
+      - I'm interested in the first-time homebuyer program offered by Sandhu and Sran.
+      - Can Sandhu and Sran help me with a low down payment mortgage?
+      - How does the mortgage renewal process work with Sandhu and Sran?
+      - I need help with mortgage payments. Can Sandhu and Sran assist?
+      - What are the available mortgage terms with Sandhu and Sran?
+      - Can I get a mortgage rate lock with Sandhu and Sran?
+      - Does Sandhu and Sran offer mortgage calculators?
+      - What kind of customer support does Sandhu and Sran provide?
+      - Does Sandhu and Sran have any branches or locations?
+      - I'm interested in a private mortgage through Sandhu and Sran.
+      - Can Sandhu and Sran help me with a truck loan?
+      - I need a mortgage for an investment property. Can Sandhu and Sran help?
+      - What are the options for a home equity line of credit with Sandhu and Sran?
+      - I'm looking for a mortgage with a low credit score. Can Sandhu and Sran help?
+      - Can Sandhu and Sran help me with a construction mortgage?
+      - I need help with mortgage refinancing through Sandhu and Sran.
+      - What are the benefits of choosing Sandhu and Sran over other lenders?
+      - How long does it take to get a mortgage approved through Sandhu and Sran?
+      - Can I get a mortgage pre-approval from Sandhu and Sran?
+      - What is the process of transferring a mortgage with Sandhu and Sran?
+      - I'm interested in the first-time homebuyer program offered by Sandhu and Sran.
+      - Can Sandhu and Sran help me with a low down payment mortgage?
+      - How does the mortgage renewal process work with Sandhu and Sran?
+      - I need help with mortgage payments. Can Sandhu and Sran assist?
+      - What are the available mortgage terms with Sandhu and Sran?
+      - Can I get a mortgage rate lock with Sandhu and Sran?
+      - Does Sandhu and Sran offer mortgage calculators?
+      - What kind of customer support does Sandhu and Sran provide?
+      - Does Sandhu and Sran have any branches or locations?
+      - I'm interested in a private mortgage through Sandhu and Sran.
+      - Can Sandhu and Sran help me with a truck loan?
+      - I need a mortgage for an investment property. Can Sandhu and Sran help?
+      - What are the options for a home equity line of credit with Sandhu and Sran?
+      - I'm looking for a mortgage with a low credit score. Can Sandhu and Sran help?
+      - Can Sandhu and Sran help me with a construction mortgage?
+      - I need help with mortgage refinancing through Sandhu and Sran.
+      - What are the benefits of choosing Sandhu and Sran over other lenders?
+      - How long does it take to get a mortgage approved through Sandhu and Sran?
+      - Can I get a mortgage pre-approval from Sandhu and Sran?
+      - What is the process of transferring a mortgage with Sandhu and Sran?
+      - What mortgage options are available through Sandhu and Sran? 
+      - How can Sandhu and Sran help me with a low credit score?
+      - What are the benefits of using Sandhu and Sran for a mortgage?
+      - Can Sandhu and Sran help me with a mortgage refinance?
+      - How do I apply for a mortgage with Sandhu and Sran?
+      - I'm interested in a construction mortgage. Can Sandhu and Sran help?
+      - What are the options for a home equity line of credit with Sandhu and Sran?
+      - I need a mortgage for an investment property. Can you help?
+      - Can Sandhu and Sran offer me a private mortgage?
+      - What are the truck loan options with Sandhu and Sran?
+      - What are the current mortgage rates offered by Sandhu and Sran?
+      - Are there any processing fee waivers available?
+      - What are the closing costs involved with a Sandhu and Sran mortgage?
+      - How long does the mortgage approval process take with Sandhu and Sran?
+      - Can I get a mortgage pre-approval from Sandhu and Sran?
+      - What kind of customer support does Sandhu and Sran offer?
+      - Does Sandhu and Sran have any physical locations?
+      - How does Sandhu and Sran compare to other mortgage lenders?
+      - Are Sandhu and Sran rates competitive?
+      - I'm struggling to save for a down payment. Can Sandhu and Sran help?
+      - I have bad credit and need a mortgage. Can Sandhu and Sran assist?
+      - I'm self-employed and need a mortgage. What options do I have with Sandhu and Sran?
+      - Could you explain the mortgage refinancing process with Sandhu and Sran?
+      - Can you help me choose between a fixed-rate and variable-rate mortgage?
+      - Would you recommend using a mortgage broker like Sandhu and Sran?
+      - What are the loan options available at Sandhu & Sran?
+      - I need assistance with my mortgage. Can Sandhu & Sran help?
+      - I'm looking for a home loan. Does Sandhu & Sran offer good rates?
+      - What are the financing options for a new home purchase with Sandhu & Sran?
+      - I'm searching for a mortgage provider. Can you recommend Sandhu & Sran?
+      - I require a mortgage. Can Sandhu & Sran assist me?
+      - I need help with my home financing. Can Sandhu & Sran help?
+      - I'm seeking a mortgage lender. Is Sandhu & Sran a good option?
+      - I'm shopping for a mortgage. What does Sandhu & Sran offer?
+      - I need financial assistance for a new home. Can Sandhu & Sran help?
+      - What are the current mortgage interest rates at Sandhu & Sran?
+      - Can I get a lower interest rate through Sandhu & Sran?
+      - How do Sandhu & Sran's interest rates compare to other lenders?
+      - What factors affect mortgage interest rates at Sandhu & Sran?
+      - Can I lock in a fixed interest rate with Sandhu & Sran?
+      - How often do interest rates change with Sandhu & Sran mortgages?
+      - What is the lowest interest rate I can get with Sandhu & Sran?
+      - Can Sandhu & Sran offer me a competitive interest rate?
+      - How do I calculate the interest I will pay on my mortgage with Sandhu & Sran?
+      - I'm looking for the best mortgage rates. Can Sandhu & Sran help?
